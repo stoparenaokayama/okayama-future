@@ -24,7 +24,8 @@ h3 { color: #2196f3; margin-bottom: 1rem; }
 .donate { text-align: center; background: #ffffff; padding: 2rem; border-radius: 8px; box-shadow: 0 3px 6px rgba(0,0,0,0.1);}
 .donate a { display: inline-block; margin-top: 1rem; background-color: #2196f3; color: white; text-decoration: none; padding: 0.8rem 1.5rem; border-radius: 4px; transition: 0.3s;}
 .donate a:hover { background-color: #1976d2; }
-footer { background: #333; color: #fff; text-align: center; padding: 1.5rem 2rem; margin-top: 2rem; font-size: 0.9rem; }
+/* フッター用スタイル調整 */
+footer { background-color: #f8f9fa; color: #333; text-align: center; padding: 1.5rem 2rem; margin-top: 2rem; font-size: 0.9rem; border-top: 2px solid #d0d0d0; font-family:'Noto Sans JP', sans-serif; }
 @media (max-width: 768px) { .features { flex-direction: column; } }
 </style>
 </head>
@@ -62,12 +63,44 @@ footer { background: #333; color: #fff; text-align: center; padding: 1.5rem 2rem
 <section>
   <h3>規約</h3>
   <a href="rules.html">岡山市の将来を考える市民有志の会　規約</a>
-  </div>
 </section>
 
+<!-- 公示日自動切替フッター -->
 <footer>
-  <p>岡山市の将来を考える市民有志の会 | 〒〇〇〇-〇〇〇〇 岡山市〇〇区〇〇町 | 代表者：〇〇〇〇</p>
-  <p>&copy; 2025 岡山市の将来を考える市民有志の会</p>
+  <div id="issuer-info">
+    <p style="margin:0.3em 0;"><strong>発行主体</strong>：岡山市の将来を考える市民有志の会</p>
+    <p style="margin:0.3em 0;"><strong>代表者</strong>：上杉恭平</p>
+    <p style="margin:0.3em 0;"><strong>連絡先</strong>：
+      <a href="mailto:stoparenaokayama@gmail.com" style="color:#336699; text-decoration:none;">
+        stoparenaokayama@gmail.com
+      </a>
+    </p>
+  </div>
+  <p style="margin-top:0.8em;"><strong>最終更新日</strong>：
+    <time datetime="{{ site.time | date: '%Y-%m-%d' }}">
+      {{ site.time | date: '%Y年%m月%d日' }}
+    </time>
+  </p>
+
+  <script>
+    (function() {
+      // 公示日：2025年9月21日
+      const noticeDate = new Date(2025, 8, 21);
+      const today = new Date();
+      if (today >= noticeDate) {
+        document.getElementById("issuer-info").innerHTML = `
+          <p style="margin:0.3em 0;"><strong>発行主体</strong>：岡山市の将来を考える市民有志の会</p>
+          <p style="margin:0.3em 0;"><strong>代表者</strong>：上杉恭平</p>
+          <p style="margin:0.3em 0;"><strong>住所</strong>：岡山市北区一宮495-1</p>
+          <p style="margin:0.3em 0;"><strong>連絡先</strong>：
+            <a href="mailto:stoparenaokayama@gmail.com" style="color:#336699; text-decoration:none;">
+              stoparenaokayama@gmail.com
+            </a>
+          </p>
+        `;
+      }
+    })();
+  </script>
 </footer>
 
 </body>
