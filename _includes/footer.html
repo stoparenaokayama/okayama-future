@@ -1,0 +1,38 @@
+<footer style="background-color:#f8f9fa; text-align:center; font-size:0.9em; margin-top:2em; padding:1.5em; border-top:2px solid #d0d0d0; font-family:'Hiragino Sans', 'Noto Sans JP', sans-serif; color:#333;">
+  <div id="issuer-info">
+    <!-- JavaScriptでここを書き換え -->
+    <p style="margin:0.3em 0;"><strong>発行主体</strong>：岡山市の将来を考える市民有志の会</p>
+    <p style="margin:0.3em 0;"><strong>代表者</strong>：上杉恭平</p>
+    <p style="margin:0.3em 0;"><strong>連絡先</strong>：
+      <a href="mailto:stoparenaokayama@gmail.com" style="color:#336699; text-decoration:none;">
+        stoparenaokayama@gmail.com
+      </a>
+    </p>
+  </div>
+  <p style="margin-top:0.8em;"><strong>最終更新日</strong>：
+    <time datetime="{{ site.time | date: '%Y-%m-%d' }}">
+      {{ site.time | date: '%Y年%m月%d日' }}
+    </time>
+  </p>
+
+  <script>
+    (function() {
+      // 公示日（2025年9月21日）
+      const noticeDate = new Date(2025, 8, 21); // 月は0始まり（8=9月）
+      const today = new Date();
+
+      if (today >= noticeDate) {
+        document.getElementById("issuer-info").innerHTML = `
+          <p style="margin:0.3em 0;"><strong>発行主体</strong>：岡山市の将来を考える市民有志の会</p>
+          <p style="margin:0.3em 0;"><strong>代表者</strong>：上杉恭平</p>
+          <p style="margin:0.3em 0;"><strong>住所</strong>：岡山市北区一宮495-1</p>
+          <p style="margin:0.3em 0;"><strong>連絡先</strong>：
+            <a href="mailto:stoparenaokayama@gmail.com" style="color:#336699; text-decoration:none;">
+              stoparenaokayama@gmail.com
+            </a>
+          </p>
+        `;
+      }
+    })();
+  </script>
+</footer>
